@@ -1,12 +1,16 @@
-import { StyleSheet, Dimensions, } from "react-native";
+import { StyleSheet, Dimensions, View } from "react-native";
 
 import Banner from '../components/Home/Banner'
+import HomeProduct from '../components/Home/HomeProduct'
 
 var { width } = Dimensions.get("window");
 
 export default function HomeScreen() {
     return (
-        <Banner />
+        <View>
+            <Banner />
+            <HomeProduct />
+        </View>
     );
 }
 
