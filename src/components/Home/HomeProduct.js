@@ -26,8 +26,12 @@ export default function HomeProduct() {
     return (
         <View style={styles.container}>
             <Text
-                style={{ fontSize: 25, color: "#333", textAlign: "center", }}
-            >Best Selling!
+                style={{
+                    fontSize: 25,
+                    color: "#333",
+                    textAlign: "center",
+                }}
+            >Best Selling!!
             </Text>
             <View style={styles.productCard}>
                 {products &&

@@ -51,7 +51,7 @@ export default function ProductCard({ product }) {
             marginTop: -5,
           }}
         >
-          $ {product.offerPrice}
+          {product.offerPrice.length > 0 ? "$ " + product.offerPrice : null}
         </Text>
       </View>
       <View
@@ -79,14 +79,29 @@ export default function ProductCard({ product }) {
             />
           </TouchableOpacity>
         )}
-        <TouchableOpacity>
-          <Icon
-            name="cart-outline"
-            size={25}
-            style={{ marginRight: 10, color: "#333" }}
-          />
-        </TouchableOpacity>
+        {product.Stock !== 0 ? (
+          <TouchableOpacity>
+            <Icon
+              name="cart-outline"
+              size={25}
+              style={{ marginRight: 10, color: "#333" }}
+            />
+          </TouchableOpacity>
+        ) : null}
       </View>
+      {product.Stock === 0 ? (
+        <View style={styles.outOfStock}>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 10,
+              textAlign: "center",
+            }}
+          >
+            Stock Limited
+          </Text>
+        </View>
+      ) : null}
     </View>
   );
 }
