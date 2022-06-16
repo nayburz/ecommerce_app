@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     elevation: 8,
     paddingVertical: 10,
     paddingHorizontal: 10,
+
   },
   headerFlex: {
     flexDirection: "row",

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProduct } from '../../../Redux/Actions/ProductAction';
@@ -33,6 +33,7 @@ export default function HomeProduct() {
                 }}
             >Best Selling!!
             </Text>
+
             <View style={styles.productCard}>
                 {products &&
                     products.map(product => (
@@ -42,6 +43,7 @@ export default function HomeProduct() {
                         />
                     ))}
             </View>
+
         </View>
     )
 }
