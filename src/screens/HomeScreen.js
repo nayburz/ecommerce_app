@@ -6,10 +6,10 @@ import Header from '../components/Layout/Header'
 
 var { width } = Dimensions.get("window");
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
     return (
         <View>
-            <Header />
+            <Header navigation={navigation} />
             <Banner />
             <HomeProduct />
         </View>

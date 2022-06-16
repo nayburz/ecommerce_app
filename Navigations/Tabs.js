@@ -28,7 +28,8 @@ export default function Tabs() {
             }}
             style={styles.bottomTabs}
         >
-            <Tab.Screen name="Home"
+            <Tab.Screen
+                name="Home2"
                 component={HomeScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (

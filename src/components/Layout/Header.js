@@ -12,11 +12,11 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 var { width } = Dimensions.get("window");
 
-const Header = () => {
+const Header = ({ navigation }) => {
   return (
     <View style={styles.headerMain}>
       <View style={styles.headerFlex}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <Icon name="menu-outline" size={40} />
         </TouchableOpacity>
         <TextInput
