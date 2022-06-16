@@ -5,18 +5,9 @@ import ProductsScreen from '../src/screens/ProductsScreen'
 import WishlistScreen from '../src/screens/WishlistScreen'
 import CartScreen from '../src/screens/CartScreen'
 import ProfileScreen from '../src/screens/ProfileScreen'
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image } from "react-native";
 
 const Tab = createBottomTabNavigator();
-
-const styles = StyleSheet.create({
-    bottomTabs: {
-        elevation: 8,
-        backgroundColor: "red"
-
-
-    }
-})
 
 export default function Tabs() {
     return (
@@ -25,9 +16,7 @@ export default function Tabs() {
                 headerShown: false,
                 tabBarShowLabel: false,
                 tabBarHideOnKeyboard: true
-            }}
-            style={styles.bottomTabs}
-        >
+            }}>
             <Tab.Screen
                 name="Home2"
                 component={HomeScreen}

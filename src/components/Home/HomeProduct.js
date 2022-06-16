@@ -1,28 +1,11 @@
-import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getProduct } from '../../../Redux/Actions/ProductAction';
-import ProductCard from "../Home/ProductCard"
+import { StyleSheet, Text, View, Dimensions, ScrollView } from "react-native";
+import React from "react";
 
-
+import ProductCard from "../Home/ProductCard";
 
 var { width } = Dimensions.get("window");
 
-export default function HomeProduct() {
-
-    const dispatch = useDispatch();
-
-    const { products, error, loading } = useSelector(state => state.products);
-
-    useEffect(() => {
-        if (error) {
-            alert(error)
-        }
-        dispatch(getProduct());
-
-    }, [dispatch, error]);
-
-
+export default function HomeProduct({ products }) {
     return (
         <View style={styles.container}>
             <Text
@@ -31,21 +14,17 @@ export default function HomeProduct() {
                     color: "#333",
                     textAlign: "center",
                 }}
-            >Best Selling!!
+            >
+                Best Selling!!
             </Text>
-
             <View style={styles.productCard}>
                 {products &&
-                    products.map(product => (
-                        <ProductCard
-                            key={product._id}
-                            product={product}
-                        />
+                    products.map((product) => (
+                        <ProductCard key={product._id} product={product} />
                     ))}
             </View>
-
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -57,10 +36,9 @@ const styles = StyleSheet.create({
     },
     productCard: {
         width: width * 1 - 10,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
     },
-
-})
+});
