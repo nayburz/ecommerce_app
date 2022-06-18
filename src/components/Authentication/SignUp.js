@@ -11,7 +11,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 var { width } = Dimensions.get("window");
 
-export default function Login({ navigation }) {
+export default function SignUpScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.loginHeader}>
@@ -34,20 +34,30 @@ export default function Login({ navigation }) {
                         color: "#555",
                     }}
                 >
-                    Sign In To continue!
+                    Create an account!
                 </Text>
             </View>
             <View style={styles.loginBox}>
                 <View style={styles.relative}>
+                    <Icon name="person-circle-outline" size={25} style={styles.icon} />
+                    <TextInput
+                        placeholder="Write your name"
+                        placeholderTextColor="#333"
+                        style={styles.inputBox}
+                        typeContentType="name"
+                    />
+                </View>
+                <View style={styles.relative}>
                     <Icon name="mail-open-outline" size={25} style={styles.icon} />
                     <TextInput
-                        placeholder="Write your email..."
+                        placeholder="Write your email"
                         placeholderTextColor="#333"
                         style={styles.inputBox}
                         typeContentType="emailAddress"
                         keyboardType="email-address"
                     />
                 </View>
+
                 <View style={styles.relative}>
                     <Icon name="lock-closed-outline" size={25} style={styles.icon} />
                     <TextInput
@@ -57,18 +67,10 @@ export default function Login({ navigation }) {
                         typeContentType="password"
                         secureTextEntry={true}
                     />
-                    <Text
-                        style={{
-                            color: "#333",
-                            fontSize: 15,
-                            textAlign: "right",
-                        }}
-                    >
-                        Forgot Password
-                    </Text>
+
                     <TouchableOpacity>
                         <View style={styles.button}>
-                            <Text style={{ color: "#fff", fontSize: 18 }}>Login</Text>
+                            <Text style={{ color: "#fff", fontSize: 18 }}>Sign Up</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -81,9 +83,14 @@ export default function Login({ navigation }) {
                     justifyContent: "flex-end",
                 }}
             >
-                <Text style={{ color: "#333", fontSize: 15, paddingRight: 10 }}>I'm a new user.</Text>
-                <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
-                    <Text style={{ fontSize: 15, color: "#3BB77E", paddingRight: 15 }}> Sign Up</Text>
+                <Text style={{ color: "#333", fontSize: 15, paddingRight: 10 }}>
+                    Already have an account?
+                </Text>
+                <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                    <Text style={{ fontSize: 15, color: "#3BB77E", paddingRight: 15 }}>
+                        {" "}
+                        Sign In
+                    </Text>
                 </TouchableOpacity>
             </View>
         </View>
