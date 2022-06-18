@@ -8,19 +8,9 @@ import ProductCard from "../Home/ProductCard"
 
 var { width } = Dimensions.get("window");
 
-export default function HomeProduct() {
+export default function HomeProduct({ products }) {
 
-    const dispatch = useDispatch();
-
-    const { products, error, loading } = useSelector(state => state.products);
-
-    useEffect(() => {
-        if (error) {
-            alert(error)
-        }
-        dispatch(getProduct());
-
-    }, [dispatch, error]);
+    const { isAuthenticated, user } = useSelector((state) => state.user)
 
 
     return (
@@ -30,8 +20,8 @@ export default function HomeProduct() {
                     fontSize: 25,
                     color: "#333",
                     textAlign: "center",
-                }}
-            >Best Selling!!
+                }}>
+                {isAuthenticated ? "okay" : "not"}
             </Text>
 
             <View style={styles.productCard}>
