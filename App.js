@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Provider store={Store}>

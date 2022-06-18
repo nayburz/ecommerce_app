@@ -6,14 +6,41 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from "../../../Redux/Actions/UserActions";
+
 
 var { width } = Dimensions.get("window");
 
 export default function Login({ navigation }) {
-    const [loginEmail, setLoginEmail] = useState("");
-    const [loginPassword, setLoginPassword] = useState("")
+
+    const dispatch = useDispatch();
+
+    const { error, loading, isAuthenticated } = useSelector(
+        (state) => state.user
+    );
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
+
+    const loginSubmit = () => {
+        dispatch(userLogin(email, password))
+    }
+
+    useEffect(() => {
+        if (error) {
+            alert(error);
+
+        }
+
+        if (isAuthenticated) {
+            console.log("you logined")
+
+        }
+    }, [dispatch, error, alert, isAuthenticated])
+
 
     return (
         <View style={styles.container}>
@@ -49,8 +76,8 @@ export default function Login({ navigation }) {
                         style={styles.inputBox}
                         typeContentType="emailAddress"
                         keyboardType="email-address"
-                        value={loginEmail}
-                        onChange={(e) => setLoginEmail(e.target.value)}
+                        value={email}
+                        onChangeText={setEmail}
                     />
                 </View>
                 <View style={styles.relative}>
@@ -61,8 +88,8 @@ export default function Login({ navigation }) {
                         style={styles.inputBox}
                         typeContentType="password"
                         secureTextEntry={true}
-                        value={loginPassword}
-                        onChange={(e) => setLoginPassword(e.target.value)}
+                        value={password}
+                        onChangeText={setPassword}
                     />
                     <Text
                         style={{
@@ -73,7 +100,9 @@ export default function Login({ navigation }) {
                     >
                         Forgot Password
                     </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={loginSubmit}
+                    >
                         <View style={styles.button}>
                             <Text style={{ color: "#fff", fontSize: 18 }}>Login</Text>
                         </View>
