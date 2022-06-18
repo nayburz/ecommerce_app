@@ -6,12 +6,15 @@ import {
     TextInput,
     TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 
 var { width } = Dimensions.get("window");
 
 export default function Login({ navigation }) {
+    const [loginEmail, setLoginEmail] = useState("");
+    const [loginPassword, setLoginPassword] = useState("")
+
     return (
         <View style={styles.container}>
             <View style={styles.loginHeader}>
@@ -46,6 +49,8 @@ export default function Login({ navigation }) {
                         style={styles.inputBox}
                         typeContentType="emailAddress"
                         keyboardType="email-address"
+                        value={loginEmail}
+                        onChange={(e) => setLoginEmail(e.target.value)}
                     />
                 </View>
                 <View style={styles.relative}>
@@ -56,6 +61,8 @@ export default function Login({ navigation }) {
                         style={styles.inputBox}
                         typeContentType="password"
                         secureTextEntry={true}
+                        value={loginPassword}
+                        onChange={(e) => setLoginPassword(e.target.value)}
                     />
                     <Text
                         style={{
