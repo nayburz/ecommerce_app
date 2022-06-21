@@ -10,9 +10,15 @@ import { logOutUser } from "../../../Redux/Actions/UserActions";
 
 export default function DrawerItems(props) {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
+
+  const { user, error } = useSelector((state) => state.user);
+
   const logOut = () => {
     dispatch(logOutUser());
+    if (error) {
+      alert(error);
+    }
+    alert("Log out success");
   };
   return (
     <View

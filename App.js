@@ -21,7 +21,7 @@ const App = () => {
 };
 
 const AppStack = () => {
-  const { isAuthenticated, user, loading } = useSelector((state) => state.user);
+  const { isAuthenticated, loading } = useSelector((state) => state.user);
 
   useEffect(() => {
     Store.dispatch(loadUser());

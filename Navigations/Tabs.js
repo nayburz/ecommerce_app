@@ -20,6 +20,7 @@ export default function Tabs() {
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,
       }}
+      initialRouteName="Home2"
     >
       <Tab.Screen
         name="Home2"
