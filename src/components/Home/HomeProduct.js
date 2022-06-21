@@ -1,7 +1,4 @@
-import { StyleSheet, Text, View, Dimensions, ScrollView } from "react-native";
-import React, { useEffect } from "react";
-
-import { getProduct } from "../../../Redux/Actions/ProductAction";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 import ProductCard from "../Home/ProductCard";
 
 var { width } = Dimensions.get("window");
@@ -16,9 +13,8 @@ export default function HomeProduct({ products }) {
           textAlign: "center",
         }}
       >
-        Best Selling
+        Best Selling!
       </Text>
-
       <View style={styles.productCard}>
         {products &&
           products.map((product) => (
