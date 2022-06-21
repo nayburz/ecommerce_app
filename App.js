@@ -3,12 +3,12 @@ import { Provider } from "react-redux";
 import Store from "./Redux/Store";
 import { NavigationContainer } from "@react-navigation/native";
 import Main from "./Navigations/Main";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Auth from "./Navigations/Auth";
 import { loadUser } from "./Redux/Actions/UserActions";
-
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect } from "react";
+import { Text } from "react-native";
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
 };
 
 const AppStack = () => {
-  const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { isAuthenticated, user, loading } = useSelector((state) => state.user);
 
   useEffect(() => {
     Store.dispatch(loadUser());
@@ -29,7 +29,13 @@ const AppStack = () => {
 
   return (
     <NavigationContainer>
-      <>{<>{isAuthenticated ? <Main /> : <Auth />}</>}</>
+      <>
+        {loading ? (
+          <Text>Loading</Text>
+        ) : (
+          <>{isAuthenticated ? <Main /> : <Auth />}</>
+        )}
+      </>
     </NavigationContainer>
   );
 };
