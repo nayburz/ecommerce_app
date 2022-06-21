@@ -1,14 +1,19 @@
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from "@react-navigation/drawer";
 import Icon from "react-native-vector-icons/Ionicons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutUser } from "../../../Redux/Actions/UserActions";
 
 export default function DrawerItems(props) {
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
+  const logOut = () => {
+    dispatch(logOutUser());
+  };
   return (
     <View
       style={{
@@ -39,18 +44,21 @@ export default function DrawerItems(props) {
           <DrawerItemList {...props} />
         </View>
       </DrawerContentScrollView>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          marginLeft: 15,
-          marginBottom: 15,
-        }}
-      >
-        <Icon name="log-out-outline" size={30} />
-        <Text style={{ color: "#333", fontSize: 16, paddingLeft: 10 }}>
-          Log Out
-        </Text>
+      <View>
+        <TouchableOpacity
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginLeft: 15,
+            marginBottom: 15,
+          }}
+          onPress={logOut}
+        >
+          <Icon name="log-out-outline" size={30} />
+          <Text style={{ color: "#333", fontSize: 16, paddingLeft: 10 }}>
+            Log Out
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
