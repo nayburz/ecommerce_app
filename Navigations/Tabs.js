@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from "../src/screens/HomeScreen"
-import ProductsScreen from '../src/screens/ProductsScreen'
-import WishlistScreen from '../src/screens/WishlistScreen'
-import CartScreen from '../src/screens/CartScreen'
-import ProfileScreen from '../src/screens/ProfileScreen'
-=======
 import React from "react";
 import { useSelector } from "react-redux";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -15,47 +6,11 @@ import ProductsScreen from "../src/screens/ProductsScreen";
 import WishlistScreen from "../src/screens/WishlistScreen";
 import CartScreen from "../src/screens/CartScreen";
 import ProfileScreen from "../src/screens/ProfileScreen";
->>>>>>> auth
 import { Text, View, Image } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
-<<<<<<< HEAD
-    return (
-        <Tab.Navigator
-            screenOptions={{
-                headerShown: false,
-                tabBarShowLabel: false,
-                tabBarHideOnKeyboard: true
-            }}>
-            <Tab.Screen
-                name="Home2"
-                component={HomeScreen}
-                options={{
-                    tabBarIcon: ({ focused }) => (
-                        <View
-                            style={{
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                            }}>
-                            <Image
-                                source={require('../assets/BottomTab/home.png')}
-                                style={{
-                                    width: 25,
-                                    height: 25,
-                                    resizeMode: 'contain',
-                                    marginTop: 5,
-                                    tintColor: focused ? 'crimson' : 'black',
-                                }}
-                            />
-                            <Text style={{ color: focused ? 'crimson' : 'black' }}>
-                                Home
-                            </Text>
-                        </View>
-                    ),
-=======
   const { user } = useSelector((state) => state.user);
 
   return (
@@ -78,7 +33,6 @@ export default function Tabs() {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
->>>>>>> auth
                 }}
               >
                 <Image
