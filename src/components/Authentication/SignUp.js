@@ -7,12 +7,38 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Icon from "react-native-vector-icons/Ionicons";
+import { register } from "../../../Redux/Actions/UserActions";
+import { useDispatch, useSelector } from "react-redux";
 
 var { width } = Dimensions.get("window");
 
 export default function SignUp({ navigation }) {
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
+
+  const dispatch = useDispatch();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const registerUser = () => {
+    dispatch(register(name, email, password));
+  };
+
+  useEffect(() => {
+    if (error) {
+      alert(error);
+    }
+
+    if (isAuthenticated) {
+      alert("User create Done!");
+    }
+  }, [dispatch, error, alert, isAuthenticated]);
+
   return (
     <View style={styles.container}>
       <View style={styles.loginHeader}>
@@ -45,6 +71,8 @@ export default function SignUp({ navigation }) {
             placeholder="Write your name"
             placeholderTextColor="#333"
             style={styles.inputBox}
+            value={name}
+            onChangeText={setName}
             typeContentType="name"
           />
         </View>
@@ -54,6 +82,8 @@ export default function SignUp({ navigation }) {
             placeholder="Write your email"
             placeholderTextColor="#333"
             style={styles.inputBox}
+            value={email}
+            onChangeText={setEmail}
             typeContentType="emailAddress"
             keyboardType="email-address"
           />
@@ -65,6 +95,8 @@ export default function SignUp({ navigation }) {
             placeholder="Write your password..."
             placeholderTextColor="#333"
             style={styles.inputBox}
+            value={password}
+            onChangeText={setPassword}
             typeContentType="password"
             secureTextEntry={true}
           />
@@ -110,7 +142,7 @@ export default function SignUp({ navigation }) {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={registerUser}>
             <View style={styles.button}>
               <Text style={{ color: "#fff", fontSize: 18 }}>Sign Up</Text>
             </View>

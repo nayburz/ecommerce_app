@@ -64,7 +64,7 @@ export default function Login({ navigation }) {
         <View style={styles.relative}>
           <Icon name="mail-open-outline" size={25} style={styles.icon} />
           <TextInput
-            placeholder="Write your email..."
+            placeholder="Enter your email..."
             placeholderTextColor="#333"
             style={styles.inputBox}
             typeContentType="emailAddress"
@@ -160,9 +160,9 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "100%",
-    height: 50,
-    borderRadius: 10,
-    backgroundColor: "#3BB77E",
+    height: 56,
+    borderRadius: 8,
+    backgroundColor: "#1E232C",
     alignItems: "center",
     justifyContent: "center",
     marginTop: 50,

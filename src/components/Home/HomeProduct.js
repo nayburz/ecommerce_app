@@ -5,7 +5,7 @@ var { width } = Dimensions.get("window");
 
 export default function HomeProduct({ products }) {
   return (
-    <View style={stylesr.container}>
+    <View style={styles.container}>
       <Text
         style={{
           fontSize: 25,
