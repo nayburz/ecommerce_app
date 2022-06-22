@@ -90,6 +90,7 @@ export default function Login({ navigation }) {
               fontSize: 15,
               textAlign: "right",
             }}
+            onPress={() => navigation.navigate("Forgot")}
           >
             Forgot Password
           </Text>

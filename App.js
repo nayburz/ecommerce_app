@@ -9,6 +9,7 @@ import { loadUser } from "./Redux/Actions/UserActions";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useEffect } from "react";
 import { Text } from "react-native";
+import Splash from "./src/components/Layout/Splash";
 
 const App = () => {
   return (
@@ -29,13 +30,7 @@ const AppStack = () => {
 
   return (
     <NavigationContainer>
-      <>
-        {loading ? (
-          <Text>Loading</Text>
-        ) : (
-          <>{isAuthenticated ? <Main /> : <Auth />}</>
-        )}
-      </>
+      <>{loading ? <Splash /> : <>{isAuthenticated ? <Main /> : <Auth />}</>}</>
     </NavigationContainer>
   );
 };
