@@ -6,19 +6,40 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { useSelector, useDispatch } from "react-redux";
+import { forgotPassword } from "../../../Redux/Actions/UserActions";
 var { width } = Dimensions.get("window");
 
 export default function ForgotPassword({ navigation }) {
-  const [forgotPassword, setForgotPassword] = useState("");
+  const { user, loading, error, message } = useSelector(
+    (state) => state.forgotPassword
+  );
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = useState("");
+  const forGotPassword = () => {
+    dispatch(forgotPassword(email));
+  };
+
+  useEffect(() => {
+    if (error) {
+      alert(error);
+    }
+    if (message) {
+      alert(message);
+    }
+  }, [alert, error, message]);
+
   return (
     <View style={styles.container}>
       <TextInput
         placeholder="Write your email"
         placeholderTextColor="#333"
         style={styles.forgot}
-        value={forgotPassword}
-        onChangeText={(item) => setForgotPassword(item)}
+        value={email}
+        onChangeText={(item) => setEmail(item)}
       />
       <TouchableOpacity style={styles.button}>
         <View>
@@ -29,6 +50,7 @@ export default function ForgotPassword({ navigation }) {
               fontWeight: "600",
               fontFamily: "sans-serif",
             }}
+            onPress={forGotPassword}
           >
             Submit
           </Text>
