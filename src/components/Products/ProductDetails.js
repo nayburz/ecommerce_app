@@ -5,7 +5,7 @@ export default function ProductDetails({ route, navigation }) {
   console.log(route);
   return (
     <View>
-      <Text>ProductDetails</Text>
+      <Text>{route.params?.item.name}</Text>
     </View>
   );
 }

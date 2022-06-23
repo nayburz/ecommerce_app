@@ -10,6 +10,7 @@ import { Text, View, Image } from "react-native";
 import Loader from "../src/components/Layout/Loader";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProductDetails from "../src/components/Products/ProductDetails.js";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,8 +33,9 @@ export default function Tabs() {
           >
             <Tab.Screen
               name="Home2"
-              component={simpleScreen}
-              options={{
+              component={SimpleScreen}
+              options={({ route }) => ({
+                tabBarStyle: { display: Visiblity(route) },
                 tabBarIcon: ({ focused }) => (
                   <View
                     style={{
@@ -57,7 +59,7 @@ export default function Tabs() {
                     </Text>
                   </View>
                 ),
-              }}
+              })}
             />
             <Tab.Screen
               name="ProductsTab"
@@ -184,19 +186,28 @@ export default function Tabs() {
   );
 }
 
-const simpleScreen = () => {
+const SimpleScreen = () => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator
-      screenOptions={
-        {
-          // headerShown: "false",
-        }
-      }
+      screenOptions={{
+        headerShown: false,
+      }}
       initialRouteName="Home"
     >
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="ProductDetails" component={ProductDetails} />
     </Stack.Navigator>
   );
+};
+
+const Visiblity = (route) => {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? "SimpleScreen";
+
+  if (routeName === "ProductDetails") {
+    return "none";
+  }
+  if (routeName === "Home") {
+    return "flex";
+  }
 };
