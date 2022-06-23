@@ -3,7 +3,7 @@ import ProductCard from "../Home/ProductCard";
 
 var { width } = Dimensions.get("window");
 
-export default function HomeProduct({ products }) {
+export default function HomeProduct({ products, navigation }) {
   return (
     <View style={styles.container}>
       <Text
@@ -18,7 +18,11 @@ export default function HomeProduct({ products }) {
       <View style={styles.productCard}>
         {products &&
           products.map((product) => (
-            <ProductCard key={product._id} product={product} />
+            <ProductCard
+              key={product._id}
+              product={product}
+              navigation={navigation}
+            />
           ))}
       </View>
     </View>
