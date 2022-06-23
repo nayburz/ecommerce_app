@@ -1,10 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
+import ForgotPassword from "../components/Authentication/ForgotPassword";
 
-const ForgotPasswordScreen = () => {
+const ForgotPasswordScreen = ({ navigation }) => {
   return (
     <View>
-      <Text>ForgotPasswordScreen</Text>
+      <ForgotPassword navigation={navigation} />
     </View>
   );
 };
