@@ -18,12 +18,15 @@ export default function HomeScreen({ navigation }) {
   }, [dispatch, error]);
 
   return (
-    <View>
-      <Header navigation={navigation} />
-      <ScrollView>
-        <Banner />
-        <HomeProduct products={products} />
-      </ScrollView>
-    </View>
+    <>
+      {" "}
+      <View>
+        <Header navigation={navigation} />
+        <ScrollView>
+          <Banner />
+          <HomeProduct products={products} />
+        </ScrollView>
+      </View>
+    </>
   );
 }
