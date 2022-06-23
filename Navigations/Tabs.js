@@ -202,7 +202,7 @@ const SimpleScreen = () => {
 };
 
 const Visiblity = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? "SimpleScreen";
+  const routeName = getFocusedRouteNameFromRoute(route) ?? "Feed";
 
   if (routeName === "ProductDetails") {
     return "none";

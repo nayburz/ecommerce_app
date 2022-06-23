@@ -37,26 +37,53 @@ export default function ProductCard({ product, navigation }) {
             alignItems: "flex-start",
           }}
         >
-          <Text
+          <View
             style={{
-              color: "#333",
-              paddingHorizontal: 10,
-              fontSize: 16,
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+              paddingBottom: 10,
             }}
           >
-            $ {product.price}
-          </Text>
-          <Text
-            style={{
-              color: "#555",
-              fontSize: 14,
-              textDecorationLine: "line-through",
-              marginLeft: -5,
-              marginTop: -5,
-            }}
-          >
-            {product.offerPrice.length > 0 ? "$ " + product.offerPrice : null}
-          </Text>
+            <Text
+              style={{
+                color: "#333",
+                paddingHorizontal: 10,
+                fontSize: 16,
+              }}
+            >
+              ${product.price}
+            </Text>
+            <Text
+              style={{
+                color: "#555",
+                fontSize: 14,
+                textDecorationLine: "line-through",
+                marginLeft: -10,
+                marginTop: -5,
+              }}
+            >
+              {product.offerPrice.length > 0 ? "$" + product.offerPrice : null}
+            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Icon name="star" color="#C68600" size={18} />
+              <Text
+                style={{
+                  color: "#333",
+                  paddingHorizontal: 5,
+                  fontSize: 16,
+                }}
+              >
+                ({product.numOfReviews})
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           style={{
@@ -124,7 +151,7 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: width / 2 - 60,
-    resizeMode: "cover",
+    resizeMode: "contain",
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
   },
