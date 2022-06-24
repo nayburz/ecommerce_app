@@ -4,7 +4,7 @@ import LottieView from "lottie-react-native";
 
 var { width } = Dimensions.get("window");
 
-// var height = Dimensions.get("window").height;
+var height = Dimensions.get("window").height;
 
 export default function Splash() {
   const animation = useRef(null);
@@ -35,17 +35,17 @@ export default function Splash() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: height * 1,
+    backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: width / 3,
-    // backgroundColor: "#fff",
-    // height: height * 1,
   },
   img: {
-    // opjectFit: "contain",
+    // objectFit: "contain",
     width: width * 1 - 150,
     height: 200,
     resizeMode: "contain",
+    marginBottom: 20,
   },
   loader: {
     position: "absolute",
