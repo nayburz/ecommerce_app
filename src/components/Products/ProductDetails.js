@@ -285,6 +285,9 @@ export default function ProductDetails({ route, navigation }) {
                 }}
               />
             </View>
+            <View style={{ alignItems: "center" }}>
+              <Text style={styles.submitButton}>Submit review</Text>
+            </View>
           </View>
         </View>
       </View>
@@ -321,11 +324,10 @@ const styles = StyleSheet.create({
   },
   details_box: {
     backgroundColor: "#e5e5e5",
-    elevation: 8,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     padding: 20,
-    marginVertical: 20,
+    marginTop: 20,
   },
   details: {
     flexDirection: "row",
@@ -365,6 +367,17 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: width * 1,
     padding: 20,
+  },
+  submitButton: {
+    width: "70%",
+    backgroundColor: "#3BB77E",
+    textAlign: "center",
+    marginTop: 20,
+    borderRadius: 5,
+    paddingVertical: 15,
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "600",
   },
 });
 
