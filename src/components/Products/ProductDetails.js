@@ -210,15 +210,81 @@ export default function ProductDetails({ route, navigation }) {
                         fontSize: 15,
                         color: "#555",
                         fontWeight: "600",
-                        paddingLeft: 10,
+                        paddingHorizontal: 10,
                       }}
                     >
                       {i.comment}
                     </Text>
+                    <Icon name="star" color="#C68600" size={18} />
+                    <Text style={{ paddingLeft: 5 }}>({i.rating})</Text>
                   </View>
                 ))}
               </View>
             )}
+            <View
+              style={{
+                marginTop: 10,
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 18,
+                  color: "#555",
+                  fontWeight: "600",
+                  paddingRight: 10,
+                }}
+              >
+                Your Ratings*
+              </Text>
+              <Icon
+                name="star-outline"
+                color="#C68600"
+                size={18}
+                style={{ marginHorizontal: 2 }}
+              />
+              <Icon
+                name="star-outline"
+                color="#C68600"
+                size={18}
+                style={{ marginHorizontal: 2 }}
+              />
+              <Icon
+                name="star-outline"
+                color="#C68600"
+                size={18}
+                style={{ marginHorizontal: 2 }}
+              />
+              <Icon
+                name="star-outline"
+                color="#C68600"
+                size={18}
+                style={{ marginHorizontal: 2 }}
+              />
+            </View>
+            <View
+              style={{
+                marginTop: 10,
+                height: 100,
+              }}
+            >
+              <TextInput
+                keyboardType="default"
+                placeholder="Add your review..."
+                placeholderTextColor="#333"
+                textAlignVertical="top"
+                style={{
+                  borderWidth: 1,
+                  height: 150,
+                  paddingLeft: 5,
+                  color: "#333",
+                  borderRadius: 5,
+                  borderColor: "#0000002b",
+                  height: "100%",
+                }}
+              />
+            </View>
           </View>
         </View>
       </View>
