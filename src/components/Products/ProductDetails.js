@@ -166,6 +166,60 @@ export default function ProductDetails({ route, navigation }) {
               Add To Cart
             </Text>
           </View>
+          <View style={styles.reviews}>
+            <Text
+              style={{
+                fontSize: 18,
+                color: "#333",
+                fontWeight: "600",
+              }}
+            >
+              Reviews:
+            </Text>
+            {route.params?.item.reviews.length === 0 ? (
+              <Text
+                style={{
+                  textAlign: "center",
+                  paddingTop: 5,
+                }}
+              >
+                No Reviews yet...
+              </Text>
+            ) : (
+              <View>
+                {route.params?.item.reviews.map((i) => (
+                  <View
+                    key={i._id}
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      paddingVertical: 5,
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        color: "#333",
+                        fontWeight: "700",
+                      }}
+                    >
+                      {i.name}
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: 15,
+                        color: "#555",
+                        fontWeight: "600",
+                        paddingLeft: 10,
+                      }}
+                    >
+                      {i.comment}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            )}
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -240,6 +294,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 5,
+  },
+  reviews: {
+    marginTop: 10,
+    width: width * 1,
+    padding: 20,
   },
 });
 
