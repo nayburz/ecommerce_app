@@ -5,6 +5,7 @@ import ProductsScreen from "../src/screens/ProductsScreen";
 import WishlistScreen from "../src/screens/WishlistScreen";
 import CartScreen from "../src/screens/CartScreen";
 import ProfileScreen from "../src/screens/ProfileScreen";
+import OrderScreen from "../src/screens/OrderScreen.js";
 import DrawerItems from "../src/components/Layout/DrawerItems";
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -60,6 +61,15 @@ const Main = () => {
           options={{
             drawerIcon: ({ color }) => (
               <Icon name="cart-outline" size={25} color={color} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="My Orders"
+          component={OrderScreen}
+          options={{
+            drawerIcon: ({ color }) => (
+              <Icon name="reader-outline" size={25} color={color} />
             ),
           }}
         />
